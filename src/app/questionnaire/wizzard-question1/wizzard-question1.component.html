@@ -1,0 +1,33 @@
+
+<div class="container text-white">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="py-3 text-gray-dark text-center">Environnement familial</h5>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 py-3">
+          <h5 class="text-center my-0 text-info">{{question1}}</h5>
+        </div>
+      </div> <br>
+      <div class="row d-flex justify-content-around">
+        <div class="col-md-4 text-center"><a (click)="onGetAnswer1($event)" [routerLink]="['/faisons-connaissance','2']" class="btn btn-outline-primary text-center my-2">Oui</a></div>
+        <div class="col-md-4 text-center"><a (click)="onGetAnswer1($event)" [routerLink]="['/faisons-connaissance','2']" class="btn btn-outline-primary text-center my-2">Non</a></div>
+        <div class="col-md-4 text-center"><a (click)="onGetAnswer1($event)" [routerLink]="['/faisons-connaissance','2']" class="btn btn-outline-secondary my-2">Je passe</a></div>
+      </div>
+    </div>
+   </div> 
+ 
+    
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-md-12 text-center d-flex justify-content-start">
+        <button [routerLink]="['/faisons-connaissance']" class="btn btn-outline-info btn-sm" aria-label="Previous"><span aria-hidden="true">&laquo;</span> Oups je me suis trompé
+          </button>
+          </div>
+    </div>
+  </div>
+  
