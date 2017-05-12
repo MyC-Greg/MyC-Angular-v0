@@ -12,4 +12,8 @@ export class SymptomasComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log('Submitted');
+  }
+
 }

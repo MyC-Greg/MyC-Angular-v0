@@ -13,6 +13,28 @@
       <h5  class="text-info">Et aujourd'hui, comment vous sentez-vous?</h5>
     </div>
  
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <form (ngSubmit)="onSubmit(f)" #f>
+         
+          <div class="panel-heading">
+            <h6 class="panel-title py-3 text-center my-2">Effets secondaires courants</h6>
+          </div>
+          <div class="list-group"> 
+            <a class="list-group-item list-group-item-action" ngModel [formControlName]="palpitations">palpitations cardiaques</a> 
+            <a class="list-group-item list-group-item-action" ngModel [formControlName]="nausées">nausées</a> 
+            <a class="list-group-item list-group-item-action" ngModel [formControlName]="migraines">migraines</a> 
+            <a class="list-group-item list-group-item-action" ngModel [formControlName]="perte d'odorat">perte d'odorat</a>            
+            <a class="list-group-item list-group-item-action" ngModel [formControlName]="bouffées de chaleur">bouffées de chaleur</a> 
+          </div>
+          <button
+          class="btn btn-primary"
+          type="submit"
+          >Submit</button>
+        </form>
+      </div>
+      
+    </div>
 
 
 
