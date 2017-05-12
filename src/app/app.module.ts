@@ -13,6 +13,7 @@ import { WizzardQuestion0Component } from './questionnaire/wizzard-question0/wiz
 import { WizzardQuestion1Component } from './questionnaire/wizzard-question1/wizzard-question1.component';
 import { WizzardQuestion2Component } from './questionnaire/wizzard-question2/wizzard-question2.component';
 import { WizzardQuestion3Component } from './questionnaire/wizzard-question3/wizzard-question3.component';
+import { SymptomasComponent } from './symptomas/symptomas.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,8 +24,8 @@ const appRoutes: Routes = [
     { path: '1', component: WizzardQuestion1Component  },
     { path: '2', component: WizzardQuestion2Component  },
     { path: '3', component: WizzardQuestion3Component  }
-
   ] },
+    { path: 'symptomes', component: SymptomasComponent }
 ];
 
 @NgModule({
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     IntroFooterComponent,
     HomeComponent,
     WizzardQuestion2Component,
-    WizzardQuestion3Component
+    WizzardQuestion3Component,
+    SymptomasComponent
   ],
   imports: [
     BrowserModule,

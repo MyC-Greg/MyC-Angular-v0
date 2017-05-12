@@ -14,9 +14,9 @@ export class WizzardQuestion2Component implements OnInit {
   ngOnInit() {
   }
 
-onGetAnswer2(info) {
-  console.log(info);
-  this.answerQuestion2 = info.target.innerText;
+onGetAnswer2(event: Event) {
+  console.log(event);
+  this.answerQuestion2 = (<HTMLInputElement>event.target).innerText;
   console.log(this.answerQuestion2);
   }
 }
