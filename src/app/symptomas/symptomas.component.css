@@ -5,3 +5,31 @@ h1 {
 #question {
     padding: 20px;
 }
+
+#otherSecondaryEffect{
+    border: solid blue 0.5px;
+    margin: 1px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.padCol {
+    padding: 10px;
+}
+
+.padRow {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    text-align: right;
+}
+
+#addSecondaryEffect {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#submit { 
+    padding-bottom: 40px;
+}
