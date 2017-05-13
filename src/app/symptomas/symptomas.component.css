@@ -33,3 +33,13 @@ p {
 #submit { 
     padding-bottom: 40px;
 }
+
+#deleteSecondaryEffects {
+    border: solid  rgba(80, 80, 80, 0.4) 0.5px;
+    color: red;
+    font-weight: bold;
+}
+
+input.ng-invalid.ng-touched {
+    border: 0.5px solid rosybrown;
+}
