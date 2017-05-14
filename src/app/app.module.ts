@@ -14,6 +14,7 @@ import { WizzardQuestion1Component } from './questionnaire/wizzard-question1/wiz
 import { WizzardQuestion2Component } from './questionnaire/wizzard-question2/wizzard-question2.component';
 import { WizzardQuestion3Component } from './questionnaire/wizzard-question3/wizzard-question3.component';
 import { SymptomasComponent } from './symptomas/symptomas.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     HomeComponent,
     WizzardQuestion2Component,
     WizzardQuestion3Component,
-    SymptomasComponent
+    SymptomasComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

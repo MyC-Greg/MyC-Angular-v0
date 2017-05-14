@@ -21,12 +21,11 @@
         </div>
         <div class="input-group d-flex flex-column">
           <div class="d-flex flex-row"
-                *ngFor="let currentSymptoma of currentSymptomas; let i=index">
-           
+              *ngFor="let currentSymptoma of currentSymptomas; let i=index">
             <button id="deleteSecondaryEffects" class="btn btn-link btn-sm"
                     (click)=onDelete(i)>X</button>
-        
-          <a class="list-group-item list-group-item-action">{{currentSymptomas[i]}}</a> 
+          <a class="list-group-item list-group-item-action"
+              >{{currentSymptomas[i]}}</a> 
           </div>
         </div>
       </div>     
@@ -48,17 +47,21 @@
           <h6 class="panel-title py-3 text-center my-2">Autres effets secondaires</h6>
         </div>
         <div class="btn-group" role="group">
-          <div class="btn-group" role="group">
+          <div class="btn-group" appDropdown role="group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          aïe
+          Choisissez
             </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" 
+              *ngFor="let otherSymptoma of otherSymptomas; let ind=index"
+              (click)=onSelectOtherSymptoma(ind)>{{otherSymptoma}}</a>
           </div>
         </div>
-     <button id="otherSecondaryEffect" class="btn btn-link">ajouter ce symptôme</button>
+     <button 
+            id="otherSecondaryEffect" 
+            class="btn btn-link"
+            (click)="onAddOtherSymptoma()"
+            >{{otherSymptoma}}</button>
       </div>
     </div>
 
@@ -66,6 +69,7 @@
 
  
  <form (ngSubmit)="onAddUnknownSymptoma(f)" #f="ngForm">
+   <hr>
   <div id="addSecondaryEffect" class="row d-flex justify-content-between">
     <div class="col-lg-6">
       <p>
@@ -87,7 +91,7 @@
                 class="form-control" 
                 placeholder="Votre effet secondaire"
                 ngModel
-                name="unknownSecondaryEffect"
+                name="unknownSymptoma"
                 required> 
             </div>
           </div>
