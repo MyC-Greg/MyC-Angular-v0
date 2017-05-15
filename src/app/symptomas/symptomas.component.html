@@ -25,7 +25,9 @@
             <button id="deleteSecondaryEffects" class="btn btn-link btn-sm"
                     (click)=onDelete(i)>X</button>
           <a class="list-group-item list-group-item-action"
-              >{{currentSymptomas[i]}}</a> 
+          (click)=onUpdateStatus(i)
+          [ngStyle]="{backgroundColor: GetColor(i)}"
+              >{{currentSymptoma.name}}</a> 
           </div>
         </div>
       </div>     
