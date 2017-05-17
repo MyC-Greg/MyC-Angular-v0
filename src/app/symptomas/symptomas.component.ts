@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
- import { Symptoma } from './symptoma.model';
+import { Symptoma } from './symptoma.model';
 
 @Component({
   selector: 'app-symptomas',
@@ -43,20 +43,14 @@ export class SymptomasComponent implements OnInit {
   }
 
   onAddClassicSymptoma(newSymptomaIndex) {
-    // console.log(this.currentSymptomas.length);
-    // if (this.currentSymptomas.length > 1) {
-    //   console.log(this.currentSymptomas.filter(symptoma)=>{
+    const classicSymptomas = this.classicSymptomas[newSymptomaIndex];
 
-    //   });
-    // } else {
-    //   this.currentSymptoma = new Symptoma (this.classicSymptomas[newSymptomaIndex], 0, 0);
-    //  this.currentSymptomas.unshift(this.currentSymptoma);
-    // }
-    
-    if (this.currentSymptomas.indexOf(this.classicSymptomas[newSymptomaIndex]) === -1 ) {
-       this.currentSymptoma = new Symptoma (this.classicSymptomas[newSymptomaIndex], 0, 0);
+    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+      return el.name === classicSymptomas;
+    })) {
+      this.currentSymptoma = new Symptoma (this.classicSymptomas[newSymptomaIndex], 0, 0);
       this.currentSymptomas.unshift(this.currentSymptoma);
-    }
+    };
 }
 
   onDelete(index) {
@@ -64,10 +58,14 @@ export class SymptomasComponent implements OnInit {
   }
 
   onAddUnknownSymptoma(form: NgForm) {
-    if (this.currentSymptomas.indexOf(form.value.unknownSymptoma) === -1 ) {
+    const unknownSymptoma = form.value.unknownSymptoma;
+    
+    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+      return el.name === unknownSymptoma;
+    })) {
       this.currentSymptoma = new Symptoma (form.value.unknownSymptoma, 0, 0);
       this.currentSymptomas.unshift(this.currentSymptoma);
-    }
+    };
     form.reset();
   }
 
@@ -76,7 +74,11 @@ export class SymptomasComponent implements OnInit {
   }
 
   onAddOtherSymptoma() {
-    if (this.otherSymptoma !== 'Autre effet secondaire' && this.currentSymptomas.indexOf(this.otherSymptoma) === -1) {
+     const otherSymptoma = this.otherSymptoma;
+
+    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+      return el.name === otherSymptoma;
+    })) {
      this.currentSymptoma = new Symptoma (this.otherSymptoma, 0, 0);
       this.currentSymptomas.unshift(this.currentSymptoma);
     }
