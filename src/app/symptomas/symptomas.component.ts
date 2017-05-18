@@ -6,7 +6,7 @@ import { Symptoma } from './symptoma.model';
 @Component({
   selector: 'app-symptomas',
   templateUrl: './symptomas.component.html',
-  styleUrls: ['./symptomas.component.css']
+  styleUrls: ['./symptomas.component.css'],
 })
 export class SymptomasComponent implements OnInit {
   currentSymptomas = [];

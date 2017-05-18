@@ -22,9 +22,13 @@
         <div class="input-group d-flex flex-column">
           <div class="d-flex flex-row"
               *ngFor="let currentSymptoma of currentSymptomas; let i=index">
-            <button id="deleteSecondaryEffects" class="btn btn-link btn-sm"
-                    (click)=onDelete(i)>X</button>
-          <a class="list-group-item list-group-item-action"
+            <button 
+                style="cursor: pointer;"
+                id="deleteSecondaryEffects" 
+                class="btn btn-link btn-sm"
+                (click)=onDelete(i)
+                >X</button>
+          <a style="cursor: pointer;" class="list-group-item list-group-item-action"
           (click)=onUpdateStatus(i)
           [ngStyle]="{backgroundColor: GetColor(i)}"
               >{{currentSymptoma.name}}</a> 
@@ -37,7 +41,7 @@
           <h6 class="panel-title py-3 text-center my-2">Effets secondaires courants</h6>
         </div>
         <div class="list-group"> 
-          <a class="list-group-item list-group-item-action" 
+          <a style="cursor: pointer;" class="list-group-item list-group-item-action" 
             *ngFor="let classicSymptoma of classicSymptomas; let in=index"
             (click)="onAddClassicSymptoma(in)"
             >{{classicSymptomas[in]}}</a> 
@@ -60,6 +64,7 @@
           </div>
         </div>
      <button 
+            style="cursor: pointer;"
             id="otherSecondaryEffect" 
             class="btn btn-link"
             (click)="onAddOtherSymptoma()"
@@ -84,6 +89,7 @@
             <div class="input-group my-2"> 
               <span class="input-group-btn">
                 <button 
+                  style="cursor: pointer;"
                   class="btn btn-default" 
                   type="submit"
                   [disabled]="!f.valid">Ajoutez le</button>
@@ -103,6 +109,7 @@
 
 <div id="submit" class="d-flex justify-content-center">
   <button
+        style="cursor: pointer;"
         class=" btn btn-primary"
         type="submit"
         >Submit</button>

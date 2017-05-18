@@ -1,0 +1,52 @@
+<app-header-intro></app-header-intro>
+<div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center py-4">Choisissez vos compagnons de route!</h1>
+      </div>
+    </div>
+
+  <div class="py-3 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h5 class="">Ajoutez les amis Facebook que vous souhaitez voir rejoindre votre groupe</h5>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Rechercher vos amis" aria-describedby="glyphicon-search">
+            <button type="button" class="btn btn-default" aria-label="search"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="">Amis à ajouter</h5>
+          <ul class="list-group"
+            *ngFor="let companion of companions, let i= index">
+            <li class="list-group-item">{{companion.firstName}} {{companion.name}}</li>
+          </ul>
+          <br>
+          <div class="col-md-12">
+            <a href="#" class="btn btn-outline-primary">Validez</a>
+          </div>
+        </div>
+        <div class="col-md-6 align-self-center">
+          <p class="p-2 text-muted text-center lead">Un groupe FB sera créé et une invitation sera lancée a ces amis.&nbsp;
+            <br>
+            <br>Vous pourrez leur envoyer des messages directement via MyC grace a FB Messenger.
+            <br>
+            <br>&nbsp;Vous êtes l'administrateur de ce groupe Vous pouvez à tous moment ajouter ou enlever des membres voire le fermer. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+ <app-intro-footer></app-intro-footer>

@@ -15,6 +15,11 @@ import { WizzardQuestion2Component } from './questionnaire/wizzard-question2/wiz
 import { WizzardQuestion3Component } from './questionnaire/wizzard-question3/wizzard-question3.component';
 import { SymptomasComponent } from './symptomas/symptomas.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { CompanionsCreationComponent } from './companions/companions-creation/companions-creation.component';
+import { CompanionsManagementComponent } from './companions/companions-management/companions-management.component';
+import { CompanionsComponent } from './companions/companions.component';
+import { CompanionsService } from './companions/companions.service';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +31,12 @@ const appRoutes: Routes = [
     { path: '2', component: WizzardQuestion2Component  },
     { path: '3', component: WizzardQuestion3Component  }
   ] },
-    { path: 'symptomes', component: SymptomasComponent }
+    { path: 'symptomes', component: SymptomasComponent },
+    { path: 'mes-proches', component: CompanionsComponent, children: [
+      { path: '', component: CompanionsManagementComponent },
+      { path: 'choisissez', component: CompanionsCreationComponent },
+      { path: 'gerez', component: CompanionsManagementComponent }
+    ] }
 ];
 
 @NgModule({
@@ -41,7 +51,10 @@ const appRoutes: Routes = [
     WizzardQuestion2Component,
     WizzardQuestion3Component,
     SymptomasComponent,
-    DropdownDirective
+    DropdownDirective,
+    CompanionsCreationComponent,
+    CompanionsManagementComponent,
+    CompanionsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +62,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CompanionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
