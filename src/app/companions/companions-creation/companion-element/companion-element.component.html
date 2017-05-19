@@ -1,0 +1,12 @@
+<ul class="list-group"
+    *ngFor="let companion of companions, let i= index">
+    <li class="list-group-item">
+      <span class="pull-right">
+        <img
+          [src]="companion.profilePicturePath"
+          alt="{{ companion.name }}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span>
+      {{companion.firstName}} {{companion.name}}</li>
+  </ul>
