@@ -1,7 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
-import { Companion } from './../companion.model';
-import { CompanionsService } from './../companions.service';
+import { Companion } from './../../companion.model';
+import { CompanionsService } from './../../companions.service';
 
 @Component({
   selector: 'app-companion-selection',
@@ -12,7 +12,8 @@ import { CompanionsService } from './../companions.service';
   styleUrls: ['./companion-selection.component.css']
 })
 export class CompanionSelectionComponent implements OnInit {
-  companions: Companion[];
+  @Input() companions: Companion[];
+  @Input() companion: Companion;
   filteredCompanions = [];
   searchedCompanion;
 
@@ -26,21 +27,21 @@ export class CompanionSelectionComponent implements OnInit {
 filter () {
     if (this.searchedCompanion !== '') {
           this.filteredCompanions = this.companions.filter(function(el){
-              return el.firstName.toLowerCase().indexOf(this.searchedCompanion.toLowerCase()) > -1 
-              || 
+             return el.firstName.toLowerCase().indexOf(this.searchedCompanion.toLowerCase()) > -1 
+              ||
               el.name.toLowerCase().indexOf(this.searchedCompanion.toLowerCase()) > -1;
           }.bind(this));
-      }else{
+      } else {
           this.filteredCompanions = [];
       }
   }
 
-  select(item){
+  select(item) {
     this.searchedCompanion = item;
     this.filteredCompanions = [];
   }
 
-  handleClick(event){
+  handleClick(event) {
    let clickedComponent = event.target;
    let inside = false;
    do {
@@ -49,7 +50,7 @@ filter () {
        }
       clickedComponent = clickedComponent.parentNode;
    } while (clickedComponent);
-    if (!inside){
+    if (!inside) {
         this.filteredCompanions = [];
     }
 }

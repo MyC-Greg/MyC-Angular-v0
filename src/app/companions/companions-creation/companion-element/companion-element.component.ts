@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Companion } from './../../companion.model';
+
 
 @Component({
   selector: 'app-companion-element',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./companion-element.component.css']
 })
 export class CompanionElementComponent implements OnInit {
+  @Input() companion: Companion;
 
   constructor() { }
 

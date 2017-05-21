@@ -1,7 +1,9 @@
-import { Companion } from './../companion.model';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { CompanionsService } from './../companions.service';
+import { Companion } from './../companion.model';
+
 
 @Component({
   selector: 'app-companions-creation',
@@ -16,5 +18,4 @@ export class CompanionsCreationComponent implements OnInit {
   ngOnInit() {
     this.companions = this.CompanionsService.getCompanions();
   }
-
 }

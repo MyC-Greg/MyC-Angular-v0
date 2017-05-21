@@ -3,23 +3,30 @@ import { Companion } from './companion.model';
 
 export class CompanionsService {
     private companions: Companion[] = [
-        new Companion('Gregoire', 'Nedelec', 'Vienne', 1180, 
+        new Companion('Gregoire', 'Nedelec', 'Vienne', 1180,
         [
             new Hobby ('sport'),
             new Hobby ('cuisine'),
-            new Hobby ('meditation'), 
+            new Hobby ('meditation')
             ],
-        'https://www.fan-lexikon.de/film-tv/javier-bardem/bilder/l/javier-bardem-6022.jpg'),
+        'https://pmcdeadline2.files.wordpress.com/2011/01/bardem.jpg'),
         new Companion('Charlotte', 'Mahr', 'Vienne', 1180,
         [
             new Hobby ('sport'),
             new Hobby ('cuisine'),
             new Hobby ('yoga')
             ],
-        'https://static4.comicvine.com/uploads/original/10/100555/3262098-936full-mia-farrow.jpg')
+        'https://static4.comicvine.com/uploads/original/10/100555/3262098-936full-mia-farrow.jpg'),
+        new Companion('Jules', 'Cesar', 'Rome', 8011,
+        [
+            new Hobby ('sport'),
+            new Hobby ('guerre'),
+            new Hobby ('jeux')
+            ],
+        'https://i.ytimg.com/vi/-1PMZDm9fDk/maxresdefault.jpg'),
     ];
 
-    getCompanions(){
+    getCompanions() {
         return this.companions.slice();
     }
 }

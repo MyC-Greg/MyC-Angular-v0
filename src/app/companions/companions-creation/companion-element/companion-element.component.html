@@ -1,5 +1,6 @@
 <ul class="list-group"
-    *ngFor="let companion of companions, let i= index">
+    
+    >
     <li class="list-group-item">
       <span class="pull-right">
         <img
@@ -10,3 +11,5 @@
       </span>
       {{companion.firstName}} {{companion.name}}</li>
   </ul>
+
+  <!--*ngFor="let companion of companions, let i= index"-->

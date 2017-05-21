@@ -9,9 +9,10 @@
                 (keyup)=filter()> 
             </div>
             <div class="suggestions"
-                *ngIf="  filteredCompanions.length > 0">
+                *ngIf="filteredCompanions.length > 0">
             <ul class="list-group"
-            *ngFor="let companion of filteredCompanions">
+           *ngFor="let companion of filteredCompanions"
+            >
             <li class="list-group-item">
               <a (click)="select(item)">{{companion.firstName}} {{companion.name}}</a></li>
             </ul>

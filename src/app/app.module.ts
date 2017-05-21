@@ -19,6 +19,9 @@ import { CompanionsCreationComponent } from './companions/companions-creation/co
 import { CompanionsManagementComponent } from './companions/companions-management/companions-management.component';
 import { CompanionsComponent } from './companions/companions.component';
 import { CompanionsService } from './companions/companions.service';
+import { FilterPipe } from './filter.pipe';
+import { CompanionSelectionComponent } from './companions/companions-creation/companion-selection/companion-selection.component';
+import { CompanionElementComponent } from './companions/companions-creation/companion-element/companion-element.component';
 
 
 const appRoutes: Routes = [
@@ -54,7 +57,10 @@ const appRoutes: Routes = [
     DropdownDirective,
     CompanionsCreationComponent,
     CompanionsManagementComponent,
-    CompanionsComponent
+    CompanionsComponent,
+    FilterPipe,
+    CompanionSelectionComponent,
+    CompanionElementComponent
   ],
   imports: [
     BrowserModule,
