@@ -16,6 +16,7 @@ export class CompanionSelectionComponent implements OnInit {
   @Input() companion: Companion;
   filteredCompanions = [];
   searchedCompanion;
+  @Output() companionSelected = new EventEmitter<Companion[]>();
 
   constructor(private CompanionsService: CompanionsService,
               private elementRef: ElementRef) { }
@@ -25,6 +26,7 @@ export class CompanionSelectionComponent implements OnInit {
   }
 
 filter () {
+    console.log(this.companions);
     if (this.searchedCompanion !== '') {
           this.filteredCompanions = this.companions.filter(function(el){
              return el.firstName.toLowerCase().indexOf(this.searchedCompanion.toLowerCase()) > -1 
@@ -36,8 +38,8 @@ filter () {
       }
   }
 
-  select(item) {
-    this.searchedCompanion = item;
+  select() {
+    this.companionSelected.emit(this.filteredCompanions[0])
     this.filteredCompanions = [];
   }
 
@@ -51,7 +53,8 @@ filter () {
       clickedComponent = clickedComponent.parentNode;
    } while (clickedComponent);
     if (!inside) {
-        this.filteredCompanions = [];
+       this.filteredCompanions = [];
+       this.searchedCompanion = null;
     }
 }
 

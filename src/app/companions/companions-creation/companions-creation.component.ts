@@ -18,4 +18,15 @@ export class CompanionsCreationComponent implements OnInit {
   ngOnInit() {
     this.companions = this.CompanionsService.getCompanions();
   }
+
+ onCompanionSelected(filteredCompanionData: Companion) {
+    this.companions.unshift(filteredCompanionData);
+    console.log(this.companions);
+  }
+
+ onCompanionDeleted(i: number) {
+   this.companions.splice(i, 1);
+   console.log(this.companions);
+   
+ }
 }

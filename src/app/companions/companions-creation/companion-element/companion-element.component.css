@@ -1,0 +1,15 @@
+   #deleteCompanion {
+    color: red;
+    font-weight: bold;
+   } 
+
+   li {
+       padding: 0px;
+       margin: 3px;
+       border: none;
+       background-color: rgba(249, 131, 21, 0.10);
+   }
+
+   .companionContainer {
+       padding: 5px;
+   }

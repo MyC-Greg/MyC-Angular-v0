@@ -5,17 +5,19 @@
                 type="text" 
                 class="validate filter-input" 
                 placeholder="Recherchez vos compagnons"
-                [(ngModel)]=searchedCompanion 
+                [(ngModel)]="searchedCompanion"
                 (keyup)=filter()> 
             </div>
+            
             <div class="suggestions"
                 *ngIf="filteredCompanions.length > 0">
             <ul class="list-group"
-           *ngFor="let companion of filteredCompanions"
+           *ngFor="let c of filteredCompanions"
             >
             <li class="list-group-item">
-              <a (click)="select(item)">{{companion.firstName}} {{companion.name}}</a></li>
+              <a (click)="select()">{{c.firstName}} {{c.name}}</a></li>
             </ul>
             </div>
+            
           </div>
         </div>

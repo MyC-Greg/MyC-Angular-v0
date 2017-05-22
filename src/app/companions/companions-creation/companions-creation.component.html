@@ -15,7 +15,7 @@
       <br>
       
   <app-companion-selection
-    (onclicked)=onclicked($event)
+  (companionSelected)="onCompanionSelected($event)"
   ></app-companion-selection>
  
     </div>
@@ -28,10 +28,13 @@
           <app-companion-element
           *ngFor="let comp of companions, let i= index"
           [companion]="comp"
+          (companionDeleted)="onCompanionDeleted(i)"
           ></app-companion-element>
           <br>
-          <div class="col-md-12">
-            <a href="#" class="btn btn-outline-primary">Validez</a>
+          <div 
+            class="col-md-12"
+            id="validate">
+            <a class="btn btn-outline-primary">Validez</a>
           </div>
         </div>
         <div class="col-md-6 align-self-center">

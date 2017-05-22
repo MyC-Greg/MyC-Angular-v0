@@ -1,7 +1,6 @@
-<ul class="list-group"
-    
-    >
-    <li class="list-group-item">
+<ul class="list-group">
+  <li class="list-group-item d-flex align-items-stretch justify-content-end" >
+    <div class="companionContainer mr-auto p-2">
       <span class="pull-right">
         <img
           [src]="companion.profilePicturePath"
@@ -9,7 +8,16 @@
           class="img-responsive"
           style="max-height: 50px;">
       </span>
-      {{companion.firstName}} {{companion.name}}</li>
-  </ul>
-
-  <!--*ngFor="let companion of companions, let i= index"-->
+      {{companion.firstName}} {{companion.name}}
+    </div> 
+    <div
+    class="companionContainer align-self-center p-2">
+      <button 
+        style="cursor: pointer;"
+        id="deleteCompanion" 
+        class="btn btn-link btn-sm"
+        (click)=onDelete(companion)
+        >X</button>  
+    </div>
+  </li>
+</ul>
