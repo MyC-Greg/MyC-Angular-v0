@@ -20,13 +20,14 @@ export class CompanionsCreationComponent implements OnInit {
   }
 
  onCompanionSelected(filteredCompanionData: Companion) {
+   if (!this.companions.some(function (el)  {
+      return el.name === filteredCompanionData.name;
+    })) {
     this.companions.unshift(filteredCompanionData);
-    console.log(this.companions);
+    }
   }
 
  onCompanionDeleted(i: number) {
    this.companions.splice(i, 1);
-   console.log(this.companions);
-   
  }
 }

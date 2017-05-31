@@ -26,7 +26,6 @@ export class CompanionSelectionComponent implements OnInit {
   }
 
 filter () {
-    console.log(this.companions);
     if (this.searchedCompanion !== '') {
           this.filteredCompanions = this.companions.filter(function(el){
              return el.firstName.toLowerCase().indexOf(this.searchedCompanion.toLowerCase()) > -1 
@@ -38,8 +37,8 @@ filter () {
       }
   }
 
-  select() {
-    this.companionSelected.emit(this.filteredCompanions[0])
+  select(i) {
+    this.companionSelected.emit(this.filteredCompanions[i]);
     this.filteredCompanions = [];
   }
 

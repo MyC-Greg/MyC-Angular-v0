@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Symptoma } from './symptoma.model';
+import { GetSymptomasService } from './../getSymptomas.service';
+
 
 @Component({
   selector: 'app-symptomas',
@@ -13,7 +15,7 @@ export class SymptomasComponent implements OnInit {
   classicSymptomas = ['palpitations cardiaques', 'nausées', 'migraines', "perte d'odorat", 'bouffées de chaleur'];
   otherSymptomas = ['douleurs musculaires', 'trouble des règles', 'fragilisation des ongles'];
   otherSymptoma;
-  currentSymptoma; 
+  currentSymptoma;
   status;
 
  symptomaStatusColor = {
@@ -22,20 +24,19 @@ export class SymptomasComponent implements OnInit {
     2: 'rgba(251, 141, 152, 0.52)',
     3: 'rgba(133, 4, 17, 0.44)'
   };
-
-  constructor() {
+  
+  constructor(private getSymptomasService: GetSymptomasService) {
    }
 
   ngOnInit() {
     this.otherSymptoma = 'Autre effet secondaire';
   }
 
-  onUpdateStatus(symptomaIndex){
+  onUpdateStatus(symptomaIndex) {
     this.currentSymptomas[symptomaIndex].status ++;
     if (this.currentSymptomas[symptomaIndex].status >3) {
       this.currentSymptomas[symptomaIndex].status = 0;
     }
-    console.log(this.currentSymptomas[symptomaIndex]);
   }
 
   GetColor (symptomaIndex) {
@@ -45,7 +46,7 @@ export class SymptomasComponent implements OnInit {
   onAddClassicSymptoma(newSymptomaIndex) {
     const classicSymptomas = this.classicSymptomas[newSymptomaIndex];
 
-    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+    if (!this.currentSymptomas.some(function (el)  {
       return el.name === classicSymptomas;
     })) {
       this.currentSymptoma = new Symptoma (this.classicSymptomas[newSymptomaIndex], 0, 0);
@@ -59,13 +60,13 @@ export class SymptomasComponent implements OnInit {
 
   onAddUnknownSymptoma(form: NgForm) {
     const unknownSymptoma = form.value.unknownSymptoma;
-    
-    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+    if (!this.currentSymptomas.some(function (el)  {
       return el.name === unknownSymptoma;
     })) {
       this.currentSymptoma = new Symptoma (form.value.unknownSymptoma, 0, 0);
       this.currentSymptomas.unshift(this.currentSymptoma);
     };
+
     form.reset();
   }
 
@@ -76,7 +77,8 @@ export class SymptomasComponent implements OnInit {
   onAddOtherSymptoma() {
      const otherSymptoma = this.otherSymptoma;
 
-    if (this.currentSymptomas.length === 0 || !this.currentSymptomas.some(function (el)  {
+    if (this.otherSymptoma !== 'Autre effet secondaire' && 
+    !this.currentSymptomas.some(function (el)  {
       return el.name === otherSymptoma;
     })) {
      this.currentSymptoma = new Symptoma (this.otherSymptoma, 0, 0);
@@ -84,9 +86,7 @@ export class SymptomasComponent implements OnInit {
     }
   }
 
-
-// onSubmit() {
-  //   console.log('Submitted');
-  // }
-
+  onSubmit() {
+   this.getSymptomasService.symptomasOfTheDay.next(this.currentSymptomas);
+  }
 }

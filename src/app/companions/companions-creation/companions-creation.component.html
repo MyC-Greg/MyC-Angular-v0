@@ -24,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h5 class="">Amis à ajouter</h5>
+          <h5 class="">Vos futurs compagnons</h5>
           <app-companion-element
           *ngFor="let comp of companions, let i= index"
           [companion]="comp"
@@ -34,7 +34,10 @@
           <div 
             class="col-md-12"
             id="validate">
-            <a class="btn btn-outline-primary">Validez</a>
+            <a  class="btn btn-outline-primary"
+                style="cursor: pointer;"
+                [routerLink]="['/programme/semaine']"
+        >Validez</a>
           </div>
         </div>
         <div class="col-md-6 align-self-center">
